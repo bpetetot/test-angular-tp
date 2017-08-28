@@ -1,2 +1,32 @@
-<h1>{{title}}</h1>
+<menu></menu>
 
+<div class="container">
+
+    <header>
+        <h2><happyface [value]="total"></happyface> Votre panier s'élève à <b>${{total}}</b></h2>
+    </header>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Derniers Produits</h2>
+        </div>
+    </div>
+
+    <h3 *ngIf="noproducts">On a plus rien ! Vous êtes dans le caca 👻</h3>
+
+    <div class="row text-center">
+        <ng-container *ngFor="let product of products">
+            <product *ngIf="product.stock !== 0" [item]="product" (onAddCart)="computeCart($event)">
+            </product>
+        </ng-container>
+    </div>
+
+    <hr>
+
+    <footer>
+        Copyright &copy; Your Website 2016
+    </footer>
+
+</div>
