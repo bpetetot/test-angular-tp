@@ -1,24 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { ProductComponent } from './components/product/product.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HappyfaceComponent } from './components/happyface/happyface.component';
+import { AppComponent } from './app.component'
+import * as components from './components'
+import * as services from './services';
+import { SortproductPipe } from './pipes/sortproduct.pipe'
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    ProductComponent,
-    FooterComponent,
-    HappyfaceComponent,
+    components.MenuComponent,
+    components.ProductComponent,
+    components.FooterComponent,
+    components.HappyfaceComponent,
+    SortproductPipe,
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'en-US' },
+    services.ProductsService,
+    services.CustomerService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

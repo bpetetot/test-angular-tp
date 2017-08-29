@@ -1,50 +1,35 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Product } from "./model/product";
+import { ProductsService, CustomerService } from './services'
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public total = 0;
-  public noproducts = false;
-  public products: Product[] = [
-    new Product(
-      "Tronçoneuse",
-      "Super pour découper du zombie.",
-      "https://cdn.manomano.fr/tronconneuse-thermique-pro-ps5105ckit45-dolmar-L-12-42402_1.jpg",
-      50,
-      5
-    ),
-    new Product(
-      "Glock",
-      "Visez bien la tête du zombie et il ne resistera pas.",
-      "https://www.armurerie-lavaux.com/images/produit/opti/Glock26_gen4_9x19.jpg",
-      200,
-      10
-    ),
-    new Product(
-      "AK47",
-      "Très pratique face à une horde de zombies.",
-      "https://www.sportsmansoutdoorsuperstore.com/prodimages/35727-DEFAULT-m.jpg",
-      300,
-      3
-    ),
-    new Product(
-      "Bazooka",
-      "Dégommez tout avec ce bazooka multi-roquettes.",
-      "https://img-new.cgtrader.com/items/9644/c262dbff12/bazooka-rocket-launcher-3d-model-max-obj-3ds-fbx-c4d.jpg",
-      1000,
-      1
-    )
-  ];
+  public products: Product[] = []
+  public sort = 'stock'
 
-  constructor() {}
+  constructor(private productsService: ProductsService, private customerService: CustomerService) {}
 
-  computeCart(item) {
-    this.total += item.price;
-    const totalStock = this.products.map(p => p.stock).reduce((a, v) => a + v, 0)
-    this.noproducts = totalStock === 0
+  ngOnInit() {
+    this.products = this.productsService.getProducts()
+    this.total = this.customerService.getTotal()
+  }
+
+  updateTotal() {
+    this.total = this.customerService.getTotal()
+  }
+
+  hasProducts = () => this.productsService.hasProducts()
+
+  toggleSort = () => {
+    if (this.sort === 'stock') {
+      this.sort = 'price'
+    } else {
+      this.sort = 'stock'
+    }
   }
 }

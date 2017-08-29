@@ -1,8 +1,8 @@
 <div class="col-md-3 col-sm-6 hero-feature">
-  <div class="thumbnail" [ngClass]="{ 'last': item.stock === 1 }">
+  <div class="thumbnail" [ngClass]="{ 'last': item.isTheLast() }">
       <img src="{{item.photo}}" alt="">
       <div class="caption">
-          <h3>{{item.title}} - ${{item.price}}</h3>
+          <h3>{{item.title | uppercase}} - {{item.price | currency:'USD':true:'1.2-2'}}</h3>
           <small>quantité: {{item.stock}}</small>
           <p>{{item.description}}</p>
           <p>
