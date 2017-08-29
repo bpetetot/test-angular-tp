@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core';
+import { Http } from "@angular/http";
 
 import { Product } from '../model/product'
 
 @Injectable()
 export class CustomerService {
 
-  public cart : Product[] = []
+  public cart: Product[] = []
 
-  constructor() { }
+  constructor(private http: Http) { }
 
-  addProduct = product => {
-    const currentProduct = this.cart.filter(p => product.title === p.title)
-    if (currentProduct && currentProduct.length === 1) {
-      currentProduct[0].stock += 1
-    } else {
-      const newProduct = Product.clone(product);
-      newProduct.stock = 1
-      this.cart.push(newProduct)
-    }
-  }
+  addProduct = product => this.http.post("http://localhost:8080/rest/basket", product)
+    .do(() => this.cart.push(product))
 
-  getTotal = () => this.cart.map(({ price, stock }) => price * stock).reduce((a, c) => a + c, 0)
+  getCart = () =>
+    this.http
+      .get("http://localhost:8080/rest/basket")
+      .map(resp => resp.json())
+      .map(jsonArray => jsonArray.map(json => new Product().fromJSON(json)))
+      .do(p => this.cart = p)
+
+
+  getTotal = () => this.cart.map(({ price }) => price).reduce((a, c) => a + c, 0)
 }

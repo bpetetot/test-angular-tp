@@ -16,10 +16,10 @@ export class ProductComponent {
   constructor(private customerService: CustomerService, private productsService: ProductsService) { }
 
   addToCart() {
-    console.log(`add to cart : ${this.item.title}`)
-    this.productsService.decreaseStock(this.item)
-    this.customerService.addProduct(this.item)
-    this.onAdded.emit()
+    this.customerService.addProduct(this.item).subscribe(() => {
+      this.productsService.decreaseStock(this.item)
+      this.onAdded.emit()
+    })
   }
 
 }

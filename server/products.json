@@ -1,6 +1,6 @@
 [
-  {"title": "Z-Product 1", "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", "photo": "http://placehold.it/800x500", "price": 10, "stock": 2},
-  {"title": "B-Product 2", "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", "photo": "http://placehold.it/800x500", "price": 20, "stock": 2},
-  {"title": "C-Product 3", "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", "photo": "http://placehold.it/800x500", "price": 30, "stock": 2},
-  {"title": "D-Product 4", "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", "photo": "http://placehold.it/800x500", "price": 40, "stock": 2}
+  {"title": "Tronçoneuse", "description": "Super pour découper du zombie.", "photo": "https://cdn.manomano.fr/tronconneuse-thermique-pro-ps5105ckit45-dolmar-L-12-42402_1.jpg", "price": 50, "stock": 5},
+  {"title": "Glock", "description": "Visez bien la tête du zombie et il ne resistera pas.", "photo": "https://www.armurerie-lavaux.com/images/produit/opti/Glock26_gen4_9x19.jpg", "price": 200, "stock": 10},
+  {"title": "AK47", "description": "Très pratique face à une horde de zombies.", "photo": "https://www.sportsmansoutdoorsuperstore.com/prodimages/35727-DEFAULT-m.jpg", "price": 300, "stock": 3},
+  {"title": "Bazooka", "description": "Dégommez tout avec ce bazooka multi-roquettes.", "photo": "https://img-new.cgtrader.com/items/9644/c262dbff12/bazooka-rocket-launcher-3d-model-max-obj-3ds-fbx-c4d.jpg", "price": 1000, "stock": 1}
 ]

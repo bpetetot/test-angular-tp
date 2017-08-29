@@ -15,8 +15,10 @@ export class AppComponent implements OnInit {
   constructor(private productsService: ProductsService, private customerService: CustomerService) {}
 
   ngOnInit() {
-    this.products = this.productsService.getProducts()
-    this.total = this.customerService.getTotal()
+    this.productsService.getProducts().subscribe(p => this.products = p)
+    this.customerService.getCart().subscribe(() => {
+      this.total = this.customerService.getTotal()
+    })
   }
 
   updateTotal() {
