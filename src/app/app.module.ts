@@ -4,17 +4,15 @@ import { HttpModule } from '@angular/http'
 import { RouterModule } from '@angular/router'
 import { FormsModule } from '@angular/forms'
 
+import { CoreModule } from './core-module/core-module.module'
+import { CartModule } from './cart-module/cart-module.module'
+
 import './rxjs-operators';
 
 import { ProductsService } from './services/products.service';
-import { CustomerService } from './services/customer.service';
-import { CheckoutCustomerService } from './services/checkout-customer.service';
-
-import { SortproductPipe } from './pipes/sortproduct.pipe'
 
 import { AppComponent } from './app.component'
 import { HomeComponent } from './components/home/home.component';
-import { CartComponent } from './components/cart/cart.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ProductComponent } from './components/product/product.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -29,21 +27,19 @@ import { routes } from './app.routing'
     ProductComponent,
     FooterComponent,
     HappyfaceComponent,
-    SortproductPipe,
     HomeComponent,
-    CartComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(routes),
     FormsModule,
+    CoreModule,
+    CartModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'en-US' },
-    ProductsService,
-    CustomerService,
-    CheckoutCustomerService,
+    ProductsService
   ],
   bootstrap: [AppComponent]
 })

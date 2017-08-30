@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CustomerService } from '../../services/customer.service'
+import { CustomerService } from '../../core-module/services/customer.service'
 
 @Component({
   selector: 'menu',

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
 
-import { Product } from "../model/product";
+import { Product } from "../core-module/model/product";
 
 
 @Injectable()

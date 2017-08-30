@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
-import { CustomerService } from '../../services/customer.service'
+import { Product } from '../../../core-module/model/product'
+import { CustomerService } from '../../../core-module/services/customer.service'
+
 import { CheckoutCustomerService } from '../../services/checkout-customer.service'
-import { Product } from '../../model/product'
 import { Customer } from '../../model/customer'
 
 @Component({
