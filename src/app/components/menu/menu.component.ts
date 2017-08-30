@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CustomerService } from '../../services/customer.service'
+
 @Component({
   selector: 'menu',
   templateUrl: './menu.component.html',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  public count = 0;
+
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
+    this.customerService.count().subscribe(count => this.count = count)
   }
 
 }

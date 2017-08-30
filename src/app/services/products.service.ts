@@ -8,12 +8,11 @@ import { Product } from "../model/product";
 export class ProductsService {
   public products: Product[] = [];
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) { }
 
   getProducts = () =>
     this.http
       .get("http://localhost:8080/rest/products")
-      // .map(resp => <Product[]> resp.json())
       .map(resp => resp.json())
       .map(jsonArray => jsonArray.map(json => new Product().fromJSON(json)))
       .do(p => this.products = p)

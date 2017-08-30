@@ -8,21 +8,7 @@
 
     <hr>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <h2>Derniers Produits</h2>
-            <button class="btn btn-default" (click)="toggleSort()">{{'Trié par ' + this.sort}}</button>
-        </div>
-    </div>
-
-    <h3 *ngIf="!hasProducts()">On a plus rien ! Vous êtes dans le caca 👻</h3>
-
-    <div class="row text-center">
-        <ng-container *ngFor="let product of (products | sortproduct:sort)">
-            <product *ngIf="product.isAvailable()" [item]="product" (onAdded)="updateTotal()">
-            </product>
-        </ng-container>
-    </div>
+    <router-outlet></router-outlet>
 
     <hr>
 

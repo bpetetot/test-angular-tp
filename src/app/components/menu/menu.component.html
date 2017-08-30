@@ -1,14 +1,17 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
       <div class="navbar-header">
-          <a class="navbar-brand" href="#">Zombie store</a>
+          <a class="navbar-brand" [routerLink]="''">Zombie store</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
               <li>
-                  <a href="#">Voir mon Panier</a>
+                  <a [routerLink]="'cart'">Voir mon Panier</a>
               </li>
           </ul>
+          <span class="navbar-text" i18n>
+                {count, plural, =0 {Aucun article} =1 {1 article} other {{{count}} articles}}
+          </span>
       </div>
   </div>
 </nav>
