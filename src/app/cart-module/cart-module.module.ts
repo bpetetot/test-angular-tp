@@ -10,6 +10,8 @@ import { CartComponent } from './components/cart/cart.component';
 
 import '../rxjs-operators';
 
+import { routes } from './cart.routing'
+
 @NgModule({
   declarations: [
     CartComponent,
@@ -19,6 +21,7 @@ import '../rxjs-operators';
     HttpModule,
     CoreModule,
     FormsModule,
+    RouterModule.forChild(routes)
   ],
   providers: [
     CheckoutCustomerService,

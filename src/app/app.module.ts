@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router'
 import { FormsModule } from '@angular/forms'
 
 import { CoreModule } from './core-module/core-module.module'
-import { CartModule } from './cart-module/cart-module.module'
 
 import './rxjs-operators';
 
@@ -35,7 +34,6 @@ import { routes } from './app.routing'
     RouterModule.forRoot(routes),
     FormsModule,
     CoreModule,
-    CartModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'en-US' },
